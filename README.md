@@ -1,12 +1,12 @@
 # FindBCorps
 
 DESCRIPTION:
-An app for consumers and job seekers to find BCorporations in the United States.
+A CLI Data gem for consumers and job seekers to search for and learn about BCorporations in the United States.
 
 LICENSE URL:
 # https://github.com/sharonrieger/find_bcorps/blob/master/LICENSE
 
-# Installation???? In Gemfile? Why not just have it in the README.md
+# Installation
 
 Add this line to your application's Gemfile:
 
@@ -23,7 +23,7 @@ Or install it yourself as:
     $ gem install FindBCorps
 
 ## Usage
-TODO: ?????? What?
+
 
 ## Development
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
