@@ -1,4 +1,4 @@
-# FindBCorps
+# find_bcorps
 
 DESCRIPTION:
 A CLI Data gem for consumers and job seekers to search for and learn about BCorporations in the United States.
