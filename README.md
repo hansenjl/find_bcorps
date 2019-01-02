@@ -11,7 +11,7 @@ LICENSE URL:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'FindBCorps'
+gem 'find_bcorps'
 ```
 
 And then execute:
