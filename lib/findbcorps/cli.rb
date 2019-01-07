@@ -14,7 +14,6 @@ class FindBCorps::CLI
   #-------SCRAPE & MAKE.-------#
   def make_corp_objects
     all_listings = FindBCorps::Scraper.scrape_listings
-    FindBCorps::Corp.create_from_listings(all_listings)
   end
 
   def greeting
@@ -46,8 +45,8 @@ class FindBCorps::CLI
       corp = FindBCorps::Corp.all_listings[input.to_i - 1]
 
       #these are the additional details about corporation from the profile pages.
-      profile_attributes = FindBCorps::Scraper.scrape_profile_page(BASE_URL + corp.profile_url)
-      corp.add_profile_attributes(profile_attributes)
+      profile_attributes = FindBCorps::Scraper.scrape_profile_page(corp)
+  
         
           # print out the info about the specific corp chosen by user.
           puts "Corporation name:".upcase.bold.blue
@@ -70,7 +69,7 @@ class FindBCorps::CLI
       #error message
       puts "The information you are entering is not working. Please be sure to type the number you see on your screen"
     end
-
+    menu
   end
 
 #------------MENU--------------#
