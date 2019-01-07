@@ -17,13 +17,13 @@ class CLI
   end
 
   def greeting
-    puts "\n\nThank you for using the FindBcorps app. Below you will find a list of all certified BCorps in the U.S.\n".bold
+    puts "\n\nThank you for using the FindBcorps app. Below you will find a list of all certified BCorps in the U.S.\n".upcase.bold.green
     list_corporations
   end
 
   # -------LISTINGS----------#
   def list_corporations
-    puts "Certified BCorporations in the United States:\n".upcase.bold
+    puts "Certified BCorporations in the United States:\n".bold
 
     Corp.all_listings.each.with_index(1) do |corp_name,index|
       puts "#{index}.#{corp_name.name}".upcase.bold.blue
@@ -34,23 +34,20 @@ class CLI
 
   #--------- PROFILES------------
   def which_corp_to_show
-    puts "----------------------------"
-    puts "If you would like to see more information about a specific company, enter their corresponding number now.\n".upcase.bold
+      puts  "If you would like to see more information about a listed corporation, enter their corresponding number now.\n".upcase.bold
+      puts "OR, if you would like to exit the program, type \'quit\'".bold
     
     input = gets.strip
     bcorp_count = Corp.all_listings.count
 
     if input.to_i > 0 && input.to_i <= bcorp_count
- 
       corp = Corp.all_listings[input.to_i - 1]
-
-      #these are the additional details about corporation from the profile pages.
-      profile_attributes = Scraper.scrape_profile_page(corp)
-  
+      #additional details about corporation from the profile pages.
+      full_profile = Scraper.scrape_profile_page(corp)
         
           # print out the info about the specific corp chosen by user.
           puts "Corporation name:".upcase.bold.blue
-          puts "#{corp.name}\n\n"
+          puts "#{corp.name}\n\n".bold.blue
           puts "Location:".upcase.bold.blue
           puts "#{corp.location}\n\n"
           puts "Sector, Industry:".upcase.bold.blue
@@ -65,11 +62,15 @@ class CLI
           puts "#{corp.website_url}\n\n"
           puts "----------------------------"
       menu
-    else
+
+    elsif input == 'quit'.downcase
+      puts "Thank you. You are now exiting the FindBCorps program.".upcase.bold.green
+
+    elsif input != bcorp_count
       #error message
-      puts "The information you are entering is not working. Please be sure to type the number you see on your screen"
-    end
+      puts "The information you are entering is not working. Please be sure to type either 1 (see all listings) or 2 (exit program)\n\n".upcase.bold.red
     menu
+    end
   end
 
 #------------MENU--------------#
@@ -82,9 +83,13 @@ class CLI
     input = gets.to_i
     if input == 1
       list_corporations
-    else input == 2
-      puts "\n\nYou have successfully exited the program. Thank you!"
+      
+    elsif input == 2
+      puts "\nYou have successfully exited the program. Thank you!".upcase.bold.green
       exit
+    else
+      puts "Please enter 1 or enter 2. Any other input is not accurate.".bold.red
+      menu
     end
   end
 end
