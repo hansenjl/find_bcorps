@@ -2,7 +2,7 @@
 # The Command Line Interface Controller
 require 'pry'
 
-class FindBCorps::CLI  
+class CLI  
   # attr_accessor :all_attributes
   BASE_URL ='https://bcorporation.net'
 
@@ -93,7 +93,7 @@ end
 # #---------FOR VERSION 2--------------+
 # def list_by_offerings
 #     puts "We've listed products and services\n".upcase.bold
-#     FindBCorps::Corp.all_listings.each.with_index(1) do |corp_offerings, index|
+#     Corp.all_listings.each.with_index(1) do |corp_offerings, index|
 #         puts "#{index}.#{corp_offerings.offerings}".upcase.bold.blue
 #     end
 #     binding.pry
