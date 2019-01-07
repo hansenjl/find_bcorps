@@ -7,12 +7,12 @@ class FindBCorps::Scraper
     index_page = Nokogiri::HTML(open('https://bcorporation.net/directory?search=&industry=&country=United%20States&state=&city='))
    
     index_page.search("div.card__inner").each do |listing|
-      
       name =  listing.css(".heading4.card__title").text
       offerings  =  listing.css(".field-name-field-products-and-services").text
       location = listing.css(".field-name-field-country").text.gsub!("Location: ", "").gsub!(", United States", "")
       profile_url = listing.css("a").attribute("href").value
       FindBCorps::Corp.new(name, offerings, location, profile_url)
+      binding.pry
     end
   end
 
