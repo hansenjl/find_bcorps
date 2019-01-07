@@ -2,7 +2,7 @@
 
 require_relative '../lib/environment'  
 
-FindBCorps::CLI.new.start
+CLI.new.start
 
 
 
