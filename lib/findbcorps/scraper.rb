@@ -1,6 +1,6 @@
 require 'pry'
 
-class FindBCorps::Scraper
+class Scraper
 
   def self.scrape_listings
   # USA-only
@@ -11,8 +11,8 @@ class FindBCorps::Scraper
       offerings  =  listing.css(".field-name-field-products-and-services").text
       location = listing.css(".field-name-field-country").text.gsub!("Location: ", "").gsub!(", United States", "")
       profile_url = listing.css("a").attribute("href").value
-      FindBCorps::Corp.new(name, offerings, location, profile_url)
-      binding.pry
+      Corp.new(name, offerings, location, profile_url)
+      
     end
   end
 

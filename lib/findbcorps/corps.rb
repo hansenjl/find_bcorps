@@ -1,6 +1,6 @@
 require 'pry'
 
-class FindBCorps::Corp
+class Corp
 
   attr_accessor :name, :offerings, :location, :profile_url, :certified_date,:sectors,:company_description, :website_url
  

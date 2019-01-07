@@ -11,9 +11,9 @@ class FindBCorps::CLI
     greeting
   end
 
-  #-------SCRAPE & MAKE.-------#
+ # -------SCRAPE & MAKE.-------#
   def make_corp_objects
-    all_listings = FindBCorps::Scraper.scrape_listings
+    all_listings = Scraper.scrape_listings
   end
 
   def greeting
@@ -25,7 +25,7 @@ class FindBCorps::CLI
   def list_corporations
     puts "Certified BCorporations in the United States:\n".upcase.bold
 
-    FindBCorps::Corp.all_listings.each.with_index(1) do |corp_name,index|
+    Corp.all_listings.each.with_index(1) do |corp_name,index|
       puts "#{index}.#{corp_name.name}".upcase.bold.blue
       puts "   #{corp_name.location}\n".blue
     end
@@ -38,14 +38,14 @@ class FindBCorps::CLI
     puts "If you would like to see more information about a specific company, enter their corresponding number now.\n".upcase.bold
     
     input = gets.strip
-    bcorp_count = FindBCorps::Corp.all_listings.count
+    bcorp_count = Corp.all_listings.count
 
     if input.to_i > 0 && input.to_i <= bcorp_count
  
-      corp = FindBCorps::Corp.all_listings[input.to_i - 1]
+      corp = Corp.all_listings[input.to_i - 1]
 
       #these are the additional details about corporation from the profile pages.
-      profile_attributes = FindBCorps::Scraper.scrape_profile_page(corp)
+      profile_attributes = Scraper.scrape_profile_page(corp)
   
         
           # print out the info about the specific corp chosen by user.
