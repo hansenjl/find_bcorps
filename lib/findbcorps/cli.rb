@@ -41,9 +41,10 @@ class CLI
     bcorp_count = Corp.all_listings.count
 
     if input.to_i > 0 && input.to_i <= bcorp_count
-      corp = Corp.all_listings[input.to_i - 1]
+      corp = Corp.all_listings[input.to_i - 1]#convert input to index.
+     
       #additional details about corporation from the profile pages.
-      full_profile = Scraper.scrape_profile_page(corp)
+       Scraper.scrape_profile_page(corp)
         
           # print out the info about the specific corp chosen by user.
           puts "Corporation name:".upcase.bold.blue
@@ -66,9 +67,9 @@ class CLI
     elsif input == 'quit'.downcase
       puts "Thank you. You are now exiting the FindBCorps program.".upcase.bold.green
 
-    elsif input != bcorp_count
-      #error message
-      puts "The information you are entering is not working. Please be sure to type either 1 (see all listings) or 2 (exit program)\n\n".upcase.bold.red
+    else
+    #   #error message
+     puts "The information you are entering is not working. Please be sure to type either 1 (see all listings) or 2 (exit program)\n\n".upcase.bold.red
     menu
     end
   end
