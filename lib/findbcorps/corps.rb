@@ -2,8 +2,9 @@ require 'pry'
 
 class Corp
 
+  #meta programming for instance variables only.
   attr_accessor :name, :offerings, :location, :profile_url, :certified_date,:sectors,:company_description, :website_url
- 
+
   @@all_listings = []
 
   def initialize(name, offerings, location, profile_url)
