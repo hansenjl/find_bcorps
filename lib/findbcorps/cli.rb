@@ -65,7 +65,7 @@ class CLI
       menu
 
     elsif input == 'quit'.downcase
-      puts "Thank you. You are now exiting the FindBCorps program.".upcase.bold.green
+      puts "Thank you. You are now exiting the FindBCorps program.".upcase.bold.blue
 
     else
     #   #error message
