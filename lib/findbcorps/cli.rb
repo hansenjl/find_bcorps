@@ -17,7 +17,7 @@ class CLI
   end
 
   def greeting
-    puts "\n\nThank you for using the FindBcorps app. Below you will find a list of all certified BCorps in the U.S.\n".upcase.bold.green
+    puts "\n\nThank you for using the FindBcorps app. Below you will find a list of all certified BCorps in the U.S.\n".upcase.bold.blue
     list_corporations
   end
 
@@ -86,7 +86,7 @@ class CLI
       list_corporations
       
     elsif input == 2
-      puts "\nYou have successfully exited the program. Thank you!".upcase.bold.green
+      puts "\nYou have successfully exited the program. Thank you!".upcase.bold.blue
       exit
     else
       puts "Please enter 1 or enter 2. Any other input is not accurate.".bold.red
