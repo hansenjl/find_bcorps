@@ -1,5 +1,5 @@
 require 'pry'
-git 
+
 class Scraper
 
   def self.scrape_listings
@@ -12,7 +12,6 @@ class Scraper
       location = listing.css(".field-name-field-country").text.gsub!("Location: ", "").gsub!(", United States", "")
       profile_url = listing.css("a").attribute("href").value
       Corp.new(name, offerings, location, profile_url)
-      
     end
   end
 
