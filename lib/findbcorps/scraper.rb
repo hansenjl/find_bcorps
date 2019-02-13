@@ -1,5 +1,5 @@
 require 'pry'
-# I am testing branches, This is bcorp-2
+
 class Scraper
 
   def self.scrape_listings
