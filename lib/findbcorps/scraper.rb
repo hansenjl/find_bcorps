@@ -1,11 +1,11 @@
 require 'pry'
-
+# I am testing branches, This is bcorp-2
 class Scraper
 
   def self.scrape_listings
   # USA-only
     index_page = Nokogiri::HTML(open('https://bcorporation.net/directory?search=&industry=&country=United%20States&state=&city='))
-   
+
     index_page.search("div.card__inner").each do |listing|
       name =  listing.css(".heading4.card__title").text
       offerings  =  listing.css(".field-name-field-products-and-services").text
@@ -23,5 +23,4 @@ class Scraper
     corp.sectors = profile_page.css(".field-name-field-sector").text.gsub!("Sector: ", "")
     corp.website_url = profile_page.css(".field-name-field-website").text
   end
-end 
-
+end
