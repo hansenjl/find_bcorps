@@ -12,13 +12,15 @@ class Corp
     @offerings = offerings
     @location = location
     @profile_url = profile_url
-   
+    # can i use .send here and cut down on the code?
+    # attributes.each do |key, value|
+    # self.send("#{key}=",value)
+  end
+
     @@all_listings << self
   end
-    
+
   def self.all_listings
     @@all_listings
   end
 end
-
-
