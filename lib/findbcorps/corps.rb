@@ -7,15 +7,13 @@ class Corp
 
   @@all_listings = []
 
-  def initialize(name, offerings, location, profile_url)
-    @name = name
-    @offerings = offerings
-    @location = location
-    @profile_url = profile_url
+  def initialize(attributes)  #this needs to accept only 1 argument
+
     # can i use .send here and cut down on the code?
-    # attributes.each do |key, value|
-    # self.send("#{key}=",value)
-  end
+    #You can but you have to change how the arguments come in both for the initialize argument and how you actually send them in from the Scraper class.
+    attributes.each do |key, value|
+      self.send("#{key}=",value)
+    end
 
     @@all_listings << self
   end

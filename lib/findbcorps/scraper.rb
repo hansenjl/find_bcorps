@@ -11,7 +11,22 @@ class Scraper
       offerings  =  listing.css(".field-name-field-products-and-services").text
       location = listing.css(".field-name-field-country").text.gsub!("Location: ", "").gsub!(", United States", "")
       profile_url = listing.css("a").attribute("href").value
-      Corp.new(name, offerings, location, profile_url)
+
+
+      #this part has to change too
+      attributes = {:name => name, :offerings => offerings, :location => location, :profile_url => profile_url}
+      #you must send in the attributes as a hash where the keys match the attributes of your Corp object.
+
+      #I could also set attributes like this:
+      #  attributes = {
+      #   :name => listing.css(".heading4.card__title").text,
+      #   :offerings => listing.css(".field-name-field-products-and-services").text,
+      #   :location => listing.css(".field-name-field-country").text.gsub!("Location: ", "").gsub!(", United States", ""),
+      #   :profile_url => listing.css("a").attribute("href").value
+      # }
+
+
+      Corp.new(attributes)  #this now must accept only 1 argument
     end
   end
 
